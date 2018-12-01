@@ -29,6 +29,7 @@ import Data.Time.Clock
 import Data.Time.Calendar
 import System.Environment
 
+
 mainFunctions :: [IO ()]
 mainFunctions = [
     Day01.main,
@@ -67,6 +68,6 @@ main = do
   time <- getCurrentTime
   let (_, _, actualDay) = toGregorian $ utctDay time
   let day = headWithDefault actualDay $ fmap read args
-  mainFunctions !! (day - 1)
+  mainFunctions !! (1 - 1)
 
   

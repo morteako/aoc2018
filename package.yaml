@@ -16,6 +16,7 @@ dependencies:
   - containers
   - lens
   - time
+  - extra
 
 executables:
   aoc2018:

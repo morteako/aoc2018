@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 9d1b927dbed8f562d29750628088a49eabc17e5e117667f69d16cfe54c9b7e58
+-- hash: 324a30dedaadfa6c41dc1bc4e62636cf5379b997a46e865dee6c9bf97af9b45e
 
 name:           aoc2018
 version:        0.1.0.0
@@ -22,7 +22,6 @@ extra-source-files:
 executable aoc2018
   main-is: Main.hs
   other-modules:
-      AOC
       Day01
       Day02
       Day03
@@ -32,7 +31,6 @@ executable aoc2018
       Day07
       Day08
       Day09
-      Day1
       Day10
       Day11
       Day12
@@ -43,25 +41,18 @@ executable aoc2018
       Day17
       Day18
       Day19
-      Day2
       Day20
       Day21
       Day22
       Day23
       Day24
-      Day3
-      Day4
-      Day5
-      Day6
-      Day7
-      Day8
-      Day9
       Paths_aoc2018
   hs-source-dirs:
       src
   build-depends:
       base >=4.7 && <5
     , containers
+    , extra
     , lens
     , time
   default-language: Haskell2010
