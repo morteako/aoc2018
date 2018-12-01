@@ -6,7 +6,7 @@ import Data.List
 import Debug.Trace
 
 parse :: String -> [Int]
-parse = fmap read . lines . filter (`notElem` "+\r")
+parse = fmap read . lines . filter (/='+')
 
 solveA :: String -> Int
 solveA = sum . parse
