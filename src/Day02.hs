@@ -1,9 +1,6 @@
 module Day02 where
 
 import Data.List 
-import Debug.Trace
-
-
 
 solveA xs = res2 * res3
     where
