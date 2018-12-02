@@ -1,9 +1,6 @@
 module Day01 where
 
 import qualified Data.Set as Set
-import Data.List
-
-import Debug.Trace
 
 parse :: String -> [Int]
 parse = fmap read . lines . filter (/='+')
