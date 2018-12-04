@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 324a30dedaadfa6c41dc1bc4e62636cf5379b997a46e865dee6c9bf97af9b45e
+-- hash: 5ec07a528615a3299caf7a9922faaa50706cb00536d5fa5592aa08d451634903
 
 name:           aoc2018
 version:        0.1.0.0
@@ -54,5 +54,7 @@ executable aoc2018
     , containers
     , extra
     , lens
+    , multiset
+    , split
     , time
   default-language: Haskell2010

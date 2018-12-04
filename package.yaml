@@ -17,6 +17,8 @@ dependencies:
   - lens
   - time
   - extra
+  - multiset
+  - split
 
 executables:
   aoc2018:
