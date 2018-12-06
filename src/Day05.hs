@@ -15,8 +15,6 @@ react xs = xs
 fullyReact :: String -> Int
 fullyReact = subtract 1 . length . until ((==) <*> react) react
     
-fullyReactALittleFaster = subtract 1 . length . fst . head . filter (uncurry (==)) . (zip <*> tail) . iterate react
-
 solveA = fullyReact 
 
 solveB xs =  minimum [fullyReact $ filter ((char /=) . toLower) xs| char <- ['a'..'z']]
