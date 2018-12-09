@@ -1,8 +1,10 @@
+{-# LANGUAGE Strict #-}
 module Day09 where
 
 import qualified Data.Map.Strict as Map
 import Data.Map.Strict (Map)
 import qualified Data.Sequence as Seq
+import Data.List
 
 maxPlayers = 493
 maxMarble = 71863*100

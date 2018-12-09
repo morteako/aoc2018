@@ -2,11 +2,11 @@ name:                aoc2018
 version:             0.1.0.0
 #synopsis:
 #description:
-homepage:            https://github.com/githubuser/aoc2018#readme
+homepage:            https://github.com/morteako/aoc2018#readme
 license:             BSD3
-author:              Author name here
+author:              Morten Kolstad
 maintainer:          example@example.com
-copyright:           2018 Author name here
+copyright:           2018 Morten Kolstad
 category:            Web
 extra-source-files:
 - README.md

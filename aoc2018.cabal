@@ -4,15 +4,15 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: a7abf0040ebc460a74dea434e1d06b27597dfff53d26caf6f8f95239b313e695
+-- hash: a9c9ea124e26c840b8774802e8c6bb509ae47393ccef42375d18b73278173760
 
 name:           aoc2018
 version:        0.1.0.0
 category:       Web
-homepage:       https://github.com/githubuser/aoc2018#readme
-author:         Author name here
+homepage:       https://github.com/morteako/aoc2018#readme
+author:         Morten Kolstad
 maintainer:     example@example.com
-copyright:      2018 Author name here
+copyright:      2018 Morten Kolstad
 license:        BSD3
 license-file:   LICENSE
 build-type:     Simple
