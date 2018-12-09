@@ -6,12 +6,8 @@ import qualified Data.Set as Set
 import Data.Set (Set)
 import qualified Data.Map.Strict as Map
 import Data.Map.Strict (Map)
-import Data.Map.Strict ((!),(!?))
 import Data.Char (isUpper)
 import Data.Tuple (swap)
-import Data.Tuple.Extra (uncurry3)
-import Debug.Trace
-import Data.List
 
 parse xs = allBefore
     where
