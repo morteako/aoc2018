@@ -19,6 +19,7 @@ dependencies:
   - extra
   - multiset
   - split
+  - mtl
 
 executables:
   aoc2018:

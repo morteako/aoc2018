@@ -2,9 +2,7 @@ module Day09 where
 
 import qualified Data.Map.Strict as Map
 import Data.Map.Strict (Map)
-import Control.Lens
 import qualified Data.Sequence as Seq
-import Debug.Trace
 
 maxPlayers = 493
 maxMarble = 71863*100
