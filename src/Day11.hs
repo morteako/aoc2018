@@ -46,4 +46,6 @@ solveB = maximumOn (view _3) allGroups
 main :: IO ()
 main = do
     print $ solveA
-    --print $ solveB 
+    -- slow. Takes ~5 minutes
+    print $ solveB 
+    
