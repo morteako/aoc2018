@@ -21,6 +21,7 @@ dependencies:
   - split
   - mtl
   - array
+  - regex-compat
 
 executables:
   aoc2018:
