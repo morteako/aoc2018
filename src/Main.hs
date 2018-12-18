@@ -68,6 +68,6 @@ main = do
   time <- getCurrentTime
   let (_, _, actualDay) = toGregorian $ utctDay time
   let day = headWithDefault actualDay $ fmap read args
-  mainFunctions !! (day - 2)
+  mainFunctions !! (day - 1)
 
   

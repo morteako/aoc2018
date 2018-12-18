@@ -99,10 +99,6 @@ fixSpread dir pos = do
         StillWater   -> setFallWater pos >> fixSpread dir (next dir pos)
         _    -> return ()
         
-
-
-
-
 spreadWater :: Dir -> (Y,X) -> State Grid Action
 spreadWater dir pos = do
     res <- getRes pos

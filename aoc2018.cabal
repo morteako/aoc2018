@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 9ae0e9f30aa14398badcb94c6b0c328b63dc7bfbcde77d139d84ae6fb1852d03
+-- hash: 0cd0c129985a15b07f65ceed68c286b802c824c58657bed93e65e9329fc79331
 
 name:           aoc2018
 version:        0.1.0.0
@@ -52,6 +52,7 @@ executable aoc2018
   build-depends:
       array
     , base >=4.7 && <5
+    , bimap
     , containers
     , extra
     , lens

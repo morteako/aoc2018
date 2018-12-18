@@ -22,6 +22,7 @@ dependencies:
   - mtl
   - array
   - regex-compat
+  - bimap
 
 executables:
   aoc2018:
