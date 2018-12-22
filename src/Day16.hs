@@ -15,6 +15,7 @@ eval _ (Val v) = v
 eval m (Reg r) = m Map.! r
 
 
+
 create :: Int -> Int -> Int -> [Opcode]
 create a b c = res
     where 
@@ -22,10 +23,7 @@ create a b c = res
         regReg = [ f (Reg a) (Reg b) c  | f <- [Add,Mul,Ban,Bor]  ] ++ [ f (Reg a) (Reg b) c  | f <- [Gt,Eq]  ]
         regVal = [ f (Reg a) (Val b) c  | f <- [Add,Mul,Ban,Bor]  ] ++ [ f (Reg a) (Val b) c  | f <- [Gt,Eq]  ] ++ [Set (Reg a) (Val b) c]
         valReg = [ f (Val a) (Reg b) c  | f <- [Gt,Eq]  ] ++ [Set (Val a) (Reg b) c]
-        
 
-
-        
 
 evalOp :: Map Int Int -> Opcode -> Map Int Int
 evalOp before op = Map.insert c res before
@@ -33,13 +31,13 @@ evalOp before op = Map.insert c res before
         evalb :: Var -> Int
         evalb = eval before
         (res,c) = case op of
-            Add a b c -> (eval before a + eval before b, c)
-            Mul a b c -> (eval before a * eval before b, c)
-            Ban a b c -> (eval before a .&. eval before b, c)
-            Bor a b c -> (eval before a .|. eval before b, c)
-            Set a _ c -> (eval before a, c)
-            Gt a b c -> (fromEnum $ eval before a > eval before b, c)
-            Eq a b c -> (fromEnum $ eval before a == eval before b, c) 
+            Add a b c -> (evalb a + evalb b, c)
+            Mul a b c -> (evalb a * evalb b, c)
+            Ban a b c -> (evalb a .&. evalb b, c)
+            Bor a b c -> (evalb a .|. evalb b, c)
+            Set a _ c -> (evalb a, c)
+            Gt a b c -> (fromEnum $ evalb a > evalb b, c)
+            Eq a b c -> (fromEnum $ evalb a == evalb b, c) 
 
 checkRes before after op = after == evalOp before op
 
@@ -76,11 +74,6 @@ getCons op =
         Set (Reg _) _ _ ->  "setr"
 
 
-
-readInts :: String -> [Int]
-readInts = read
-
---parse :: String -> _
 parse :: String -> [(Int,Map Int Int, Map Int Int, [Opcode])]
 parse str = f $ lines str
     where
@@ -88,24 +81,18 @@ parse str = f $ lines str
         f (before: vals: after:"":rest) = let [i,a,b,c] = map read $ words vals in (i,toMap $ drop 8 before, toMap $ drop 7 after, create a b c) : f rest
         f xs = []
 
-        toMap = Map.fromList . zip [0..] . readInts
+        toMap = Map.fromList . zip [0..] . read
 
 
     
 countOps :: (Int,Map Int Int, Map Int Int, [Opcode]) -> Int
-countOps (_, before, after, ops) = count ops
-    where
-        count ::[Opcode] -> Int
-        count = length . filter (checkRes before after)
+countOps (_, before, after, ops) = length $ filter (checkRes before after) ops
 
 findValid :: (Int,Map Int Int, Map Int Int, [Opcode]) -> Set.Set String
-findValid (_, before, after, ops) = Set.fromList $ fmap getCons $ filter (checkRes before after) ops
+findValid (_, before, after, ops) = Set.fromList $ getCons <$> filter (checkRes before after) ops
 
 parse2 :: String -> [[Int]]
-parse2 s = fmap (map read . words) $ tail ls
-    where
-        ls = lines $ splitOn "\n\n\n" s !! 1
-
+parse2 s = fmap (map read . words) $ tail $ lines $ splitOn "\n\n\n" s !! 1
 
 
 findCorrect :: Map Int (Set.Set String) ->  [(Int,Map Int Int, Map Int Int, [Opcode])] -> Map Int (Set.Set String) 
@@ -150,10 +137,10 @@ main = do
 
     let p = parse contents
     
-    print $ solveA p
+    print $ 547 == solveA p
 
     let testProg = parse2 contents
     let m =  Map.fromList $ fmap (\(i,_,_,ops) -> (i,Set.fromList $ fmap getCons ops)) p
     let fixedCorrs = Map.fromList $ fixOps $ findCorrect m p
 
-    print $ (Map.! 0) $ solveB (Map.fromList $ [(x,0) | x <- [0..3]]) fixedCorrs testProg
+    print $ 582 == ((Map.! 0) $ solveB (Map.fromList $ [(x,0) | x <- [0..3]]) fixedCorrs testProg)

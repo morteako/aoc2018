@@ -23,6 +23,7 @@ dependencies:
   - array
   - regex-compat
   - bimap
+  - fgl
 
 executables:
   aoc2018:
